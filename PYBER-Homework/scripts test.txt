@@ -1,0 +1,26 @@
+urban_cities = pyber_data[pyber_data["type"] == "Urban"]
+Urban_rider_count=urban_cities.groupby(["city"]).count()["ride_id"]
+Urban_ave_fare=urban_cities.groupby(["city"]).mean()["fare"] 
+Urban_drivers_count=urban_cities.groupby(["city"]).mean()["driver_count"]
+-----------------------------------------------------------------------------------------
+#Review by Urban Cities
+urban_cities = pyber_data[pyber_data["type"] == "Urban"]
+urban_average_fare=urban_cities.groupby(["city"]).mean()["fare"]
+urban_number_rider=urban_cities.groupby(["city"]).count()["ride_id"]
+urban_number_drivers=urban_cities.groupby(["city"]).mean()["driver_count"]
+urban_cities
+
+#Review by Suburban Cities
+suburban_cities = pyber_data[pyber_data["type"] == "Suburban"]
+suburban_number_rider=suburban_cities.groupby(["city"]).mean()["fare"]
+suburban_number_rider=suburban_cities.groupby(["city"]).count()["ride_id"]
+suburban_number_drivers=suburban_cities.groupby(["city"]).mean()["driver_count"]
+
+#Review by Rural Cities
+Rural_cities = pyber_data[pyber_data["type"] == "Rural"]
+Rural_number_rider=Rural_cities.groupby(["city"]).mean()["fare"]
+Rural_number_rider=Rural_cities.groupby(["city"]).count()["ride_id"]
+Rural_number_drivers=Rural_cities.groupby(["city"]).mean()["driver_count"]
+------------------------------------------------------------------------------------------
+plt.scatter(average_fare,s=10*urban_drivers_count, c="coral",edgecolor="black", linewidths=1, marker="o",
+           #alpha=0.8, label="Urban")
